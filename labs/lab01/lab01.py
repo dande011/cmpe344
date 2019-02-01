@@ -24,18 +24,18 @@ segments = [ 0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0
 
 GPIO.output("P9_15", GPIO.HIGH) #S_CLEAR
 GPIO.output("P9_15", GPIO.LOW) #S_CLEAR
+GPIO.output("P9_17", GPIO.LOW) #S_LATCH
 
 for i in range(8):
 	GPIO.output("P9_18", GPIO.HIGH) #S_DATA
 	GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
 	GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
 GPIO.output("P9_17", GPIO.HIGH) #S_LATCH
-GPIO.output("P9_17", GPIO.LOW) #S_LATCH
 
 """
+GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
 GPIO.output("P9_18", GPIO.HIGH) #S_DATA
 GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
-GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
 """
 	
 
