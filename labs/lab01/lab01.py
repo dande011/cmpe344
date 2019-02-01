@@ -10,7 +10,7 @@ import Adafruit_BBIO.PWM as PWM
 #PWM.set_duty_cycle("P9_16", 1) #BLUE
 
 
-GPIO.setup("P8_19", GPIO.IN) #BUTTON
+#GPIO.setup("P8_19", GPIO.IN) #BUTTON
 #GPIO.setup("P9_36", GPIO.IN) #POT
 GPIO.setup("P9_18", GPIO.OUT) #S_DATA
 GPIO.setup("P9_22", GPIO.OUT) #S_CLOCK
