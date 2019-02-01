@@ -1,9 +1,9 @@
 import Adafruit_BBIO.GPIO as GPIO
 import Adafruit_BBIO.PWM as PWM
 
-PWM.start("P9_42", 0) #LED-RED
-PWM.start("P9_14", 0) #LED-GREEN
-PWM.start("P9_16", 0) #LED-BLUE
+#PWM.start("P9_42", 0) #LED-RED
+#PWM.start("P9_14", 0) #LED-GREEN
+#PWM.start("P9_16", 0) #LED-BLUE
 #PWM.set_duty_cycle("P9_42", 1) #RED
 #PWM.set_duty_cycle("P9_14", 1) #GREEN
 #PWM.set_duty_cycle("P9_14", 0) #GREEN
