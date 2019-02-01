@@ -10,7 +10,7 @@ PWM.start("P9_16", 0) #LED-BLUE
 
 
 GPIO.setup("P8_19", GPIO.IN) #BUTTON
-GPIO.setup("P9_36", GPIO.IN) #POT
+#GPIO.setup("P9_36", GPIO.IN) #POT
 GPIO.setup("P9_18", GPIO.OUT) #S_DATA
 GPIO.setup("P9_22", GPIO.OUT) #S_CLOCK
 GPIO.setup("P9_17", GPIO.OUT) #S_LATCH
