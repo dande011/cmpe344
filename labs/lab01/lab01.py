@@ -25,9 +25,9 @@ GPIO.output("P9_15", GPIO.HIGH) #S_CLEAR
 GPIO.output("P9_15", GPIO.LOW) #S_CLEAR
 
 for i in range(8):
-	GPIO.output("P9_18", GPIO.HIGH) #S_DATA
-	GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
-	GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
+GPIO.output("P9_18", GPIO.LOW) #S_DATA
+GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
+GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
 GPIO.output("P9_17", GPIO.HIGH) #S_LATCH
 GPIO.output("P9_17", GPIO.LOW) #S_LATCH
 	
