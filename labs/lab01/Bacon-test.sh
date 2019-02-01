@@ -17,12 +17,12 @@ function setup {
 	local i
 
 	# load cape if not loaded yet
-	grep 2>&1 >/dev/null "$cape" ~/Documents/cmpe344/beaglebone-files/
+	grep 2>&1 >/dev/null "$cape" /lib/firmware
 	if [ $? -ne 0 ] ; then
-		echo "$cape" >~/Documents/cmpe344/beaglebone-files/
+		echo "$cape" >/lib/firmware
 		sleep 5
 		# check if loaded
-		grep 2>&1 >/dev/null "$cape" ~/Documents/cmpe344/beaglebone-files/
+		grep 2>&1 >/dev/null "$cape" /lib/firmware
 		if [ $? -ne 0 ] ; then
 			echo "Failed to load $cape"
 			exit 5
