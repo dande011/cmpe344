@@ -160,7 +160,7 @@ function set_digit {
 }
 
 # setup everything
-setup
+#setup
 
 # 7 segment display test
 

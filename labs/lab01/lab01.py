@@ -6,6 +6,7 @@ PWM.start("P9_14", 0) #LED-GREEN
 PWM.start("P9_16", 0) #LED-BLUE
 #PWM.set_duty_cycle("P9_42", 1) #RED
 #PWM.set_duty_cycle("P9_14", 1) #GREEN
+#PWM.set_duty_cycle("P9_14", 0) #GREEN
 #PWM.set_duty_cycle("P9_16", 1) #BLUE
 
 
@@ -30,6 +31,12 @@ for i in range(8):
 	GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
 GPIO.output("P9_17", GPIO.HIGH) #S_LATCH
 GPIO.output("P9_17", GPIO.LOW) #S_LATCH
+
+"""
+GPIO.output("P9_18", GPIO.HIGH) #S_DATA
+GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
+GPIO.output("P9_22", GPIO.LOW) #S_CLOCK
+"""
 	
 
 GPIO.cleanup()
