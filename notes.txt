@@ -1,0 +1,4 @@
+view cpu usage: top, htop
+
+
+start gui: systemctl start lightdm
