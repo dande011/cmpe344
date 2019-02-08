@@ -22,6 +22,7 @@ PWM.start("P9_16", 0) #LED-BLUE
 GPIO.setup("P8_19", GPIO.IN) #BUTTON
 
 LEDS = [ "P9_42", "P9_14", "P9_16" ]
+COLORS = [ "RED: ", "GREEN: ", "BALUU: " ]
 segments = [ [0xC0], [0xF9], [0xA4], [0xB0], [0x99], [0x92], [0x82], [0xF8], [0x80], [0x90], [0x88], [0x83], [0xA7], [0xA1], [0x86], [0x8E] ]
 
 
@@ -49,7 +50,7 @@ def part03() :
 	while 1 :
 		time.sleep(0.1)
 		if (  not(GPIO.input("P8_19")) and  prevNum==0  ) :
-			print LEDS[num] + " " + str(ADC.read_raw("P9_36")/180)
+			print COLORS[num] + " " + str(ADC.read_raw("P9_36")/180)
 			PWM.set_duty_cycle(LEDS[num],ADC.read_raw("P9_36")/180 )
 			num = num + 1
 			prevNum = 1
