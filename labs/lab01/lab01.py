@@ -46,8 +46,8 @@ GPIO.output("P9_22", GPIO.HIGH) #S_CLOCK
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
 #while i<12 : print GPIO.input("P8_19")
-#while i<12 : print ADC.read_raw("P9_40")
-while 1 : print ADC.read("P9_40")
+#while i<12 : print ADC.read_raw("P9_36")
+while 1 : print ADC.read("P9_36")
 
 GPIO.cleanup()
 
