@@ -29,7 +29,7 @@ def part01() :
 	while 1 :
 		time.sleep(0.1)
 		if not(GPIO.input("P8_19") ) :
-			num++
+			num = num + 1
 		spi.writebytes(segments[ num%16 ] )
 		num = num % 16
 
