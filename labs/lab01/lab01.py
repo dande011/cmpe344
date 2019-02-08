@@ -3,6 +3,7 @@ import Adafruit_BBIO.PWM as PWM
 import Adafruit_BBIO.ADC as ADC
 from Adafruit_BBIO.SPI import SPI
 import time
+import math
 
 ADC.setup()
 spi = SPI(0,0)
@@ -40,7 +41,7 @@ def part01() :
 
 def part02() :
 	while 1 : 
-		spi.writebytes(segments[ floor(ADC.read_raw("P9_36")%115 )] )
+		spi.writebytes(segments[ math.floor(ADC.read_raw("P9_36")%115 )] )
 		
 ##### --- MAIN ---
 
