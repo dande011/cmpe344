@@ -33,7 +33,7 @@ def part01() :
 		if (  not(GPIO.input("P8_19")) and  prevNum==0  ) :
 			num = num + 1
 			prevNum = 1
-		if ( GPIO.input("P8_19") :
+		if ( GPIO.input("P8_19") ) :
 			prevNum = 0
 		spi.writebytes(segments[ num%16 ] )
 		num = num % 16
