@@ -2,6 +2,7 @@ import Adafruit_BBIO.GPIO as GPIO
 import Adafruit_BBIO.PWM as PWM
 import Adafruit_BBIO.ADC as ADC
 from Adafruit_BBIO.SPI import SPI
+import time
 
 ADC.setup()
 spi = SPI(0,0)
@@ -37,6 +38,11 @@ spi.writebytes([0xC0])
 #while 1 : print ADC.read_raw("P9_36")
 #while 1 : print ADC.read("P9_36")
 
+time.sleep(5)
+
 GPIO.cleanup()
+PWM.cleanup()
+ADC.cleanup()
+spi.close()
 
 exit()
