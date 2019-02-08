@@ -29,7 +29,7 @@ segments = [ bytearray(0xC0), 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x
 
 
 #7-segment writing
-spi.writebytes(segments[0])
+spi.writebytes([0xC0])
 
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
