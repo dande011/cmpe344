@@ -12,7 +12,7 @@ spi = SPI(0,0)
 PWM.start("P9_42", 0) #LED-RED
 PWM.start("P9_14", 0) #LED-GREEN
 PWM.start("P9_16", 0) #LED-BLUE
-PWM.set_duty_cycle("P9_42", 1) #RED
+#PWM.set_duty_cycle("P9_42", 1) #RED
 #PWM.set_duty_cycle("P9_42", 0) #RED
 #PWM.set_duty_cycle("P9_14", 1) #GREEN
 #PWM.set_duty_cycle("P9_14", 0) #GREEN
@@ -49,6 +49,7 @@ def part03() :
 	while 1 :
 		time.sleep(0.1)
 		if (  not(GPIO.input("P8_19")) and  prevNum==0  ) :
+			print LEDS[num]
 			PWM.set_duty_cycle(LEDS[num],int(  ADC.read_raw("P9_36")/1800 )  )
 			num = num + 1
 			prevNum = 1
@@ -60,7 +61,7 @@ def part03() :
 
 #part01()
 #part02()
-#part03()
+part03()
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
 #while i<12 : print GPIO.input("P8_19")
