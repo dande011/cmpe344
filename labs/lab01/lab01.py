@@ -35,7 +35,7 @@ def part01() :
 
 ##### --- MAIN ---
 
-
+part01()
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
 #while i<12 : print GPIO.input("P8_19")
