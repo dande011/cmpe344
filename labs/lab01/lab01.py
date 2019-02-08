@@ -41,8 +41,8 @@ def part01() :
 
 def part02() :
 	while 1 : 
-		print int(  ADC.read_raw("P9_36")/115  )
-		#spi.writebytes(segments[ math.floor(  ADC.read_raw("P9_36")/115  ) ] )
+		#print int(  ADC.read_raw("P9_36")/115  )
+		spi.writebytes(segments[ int(  ADC.read_raw("P9_36")/115  ) ] )
 		
 ##### --- MAIN ---
 
