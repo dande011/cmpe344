@@ -49,8 +49,8 @@ def part03() :
 	while 1 :
 		time.sleep(0.1)
 		if (  not(GPIO.input("P8_19")) and  prevNum==0  ) :
-			print LEDS[num] + " " + str(int(  ADC.read_raw("P9_36")/1800 ))
-			PWM.set_duty_cycle(LEDS[num],int(  ADC.read_raw("P9_36")/1800 )  )
+			print LEDS[num] + " " + str(ADC.read_raw("P9_36")/180)
+			PWM.set_duty_cycle(LEDS[num],ADC.read_raw("P9_36")/180 )
 			num = num + 1
 			prevNum = 1
 		if ( GPIO.input("P8_19") ) :
