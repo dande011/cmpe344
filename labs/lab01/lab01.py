@@ -38,9 +38,14 @@ def part01() :
 		spi.writebytes(segments[ num%16 ] )
 		num = num % 16
 
+def part02() :
+	while 1 : 
+		spi.writebytes(segments[ ADC.read_raw("P9_36")%115 ] )
+		
 ##### --- MAIN ---
 
-part01()
+#part01()
+part02()
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
 #while i<12 : print GPIO.input("P8_19")
