@@ -19,11 +19,6 @@ PWM.start("P9_16", 0) #LED-BLUE
 
 
 GPIO.setup("P8_19", GPIO.IN) #BUTTON
-#GPIO.setup("P9_36", GPIO.IN) #POT
-GPIO.setup("P9_18", GPIO.OUT) #S_DATA
-GPIO.setup("P9_22", GPIO.OUT) #S_CLOCK
-GPIO.setup("P9_17", GPIO.OUT) #S_LATCH
-GPIO.setup("P9_15", GPIO.OUT) #S_CLEAR
 
 
 segments = [ bytearray(0xC0), 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x90, 0x88, 0x83, 0xA7, 0xA1, 0x86, 0x8E ]
