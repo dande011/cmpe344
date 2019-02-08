@@ -26,6 +26,7 @@ segments = [ [0xC0], [0xF9], [0xA4], [0xB0], [0x99], [0x92], [0x82], [0xF8], [0x
 
 #7-segment writing
 def part01() :
+	num = 0
 	while 1 :
 		time.sleep(0.1)
 		if not(GPIO.input("P8_19") ) :
