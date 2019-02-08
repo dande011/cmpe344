@@ -25,7 +25,16 @@ segments = [ [0xC0], [0xF9], [0xA4], [0xB0], [0x99], [0x92], [0x82], [0xF8], [0x
 
 
 #7-segment writing
-spi.writebytes(segments[1])
+def part01() :
+	while 1 :
+		time.sleep(0.1)
+		if( "P8_19" )
+			num++
+		spi.writebytes(segments[ num%16 ] )
+		num = num % 16
+
+##### --- MAIN ---
+
 
 
 #while i<12 : PWM.set_duty_cycle("P9_42", not GPIO.input("P8_19")) #RED
@@ -33,11 +42,12 @@ spi.writebytes(segments[1])
 #while 1 : print ADC.read_raw("P9_36")
 #while 1 : print ADC.read("P9_36")
 
+
 time.sleep(5)
 
 GPIO.cleanup()
 PWM.cleanup()
-ADC.cleanup()
+#ADC.cleanup()
 spi.close()
 
 exit()
