@@ -58,7 +58,7 @@ def part03() :
 			prevNum = 0
 		num = num % 3
 		
-##### --- MAIN ---
+##### --- MAIN --- #####
 
 #part01()
 #part02()
