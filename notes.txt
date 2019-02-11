@@ -4,3 +4,13 @@ view cpu usage: top, htop
 start gui: systemctl start lightdm
 
 debian-7.5-wheezy
+
+
+
+
+
+fix time
+date
+sudo dpkg-reconfigure tzdata
+sudo ntpdate -b -s -u pool.ntp.org
+date
