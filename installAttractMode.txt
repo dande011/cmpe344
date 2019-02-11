@@ -1,0 +1,28 @@
+sudo apt-get install software-properties-common
+
+sudo apt-get install python-software-properties
+
+
+
+sudo add-apt-repository ppa:daveg/attract
+
+sudo apt-get update
+
+
+http://jaqque.sbih.org/kplug/apt-pinning.html
+
+
+
+
+sudo apt-get install \
+  build-essential \
+  pkg-config \
+  libavcodec-dev \
+  libavformat-dev \
+  libopenal-dev \
+  libswscale-dev \
+  libsfml-dev/testing \
+  libc-dev-bin/testing \
+  libc6/testing \
+  libc6-dev/testing \
+  locales/testing
