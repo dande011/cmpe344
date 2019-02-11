@@ -14,3 +14,18 @@ date
 sudo dpkg-reconfigure tzdata
 sudo ntpdate -b -s -u pool.ntp.org
 date
+
+
+
+Internet over USB
+https://www.digikey.com/en/maker/blogs/how-to-connect-a-beaglebone-black-to-the-internet-using-usb
+
+Get it working
+Network Connections > Right-click on internet > Properties > Sharing
+Network Connections > Right-click on beaglebone > Properties > IPv4 > 192.168.7.1
+test
+ping 8.8.8.8
+
+sudo /sbin/route add default gw 192.168.7.1
+echo "nameserver 8.8.8.8" >> /etc/resolv.conf
+ping google.com
