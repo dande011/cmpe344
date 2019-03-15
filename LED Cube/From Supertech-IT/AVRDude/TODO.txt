@@ -1,4 +1,0 @@
-Add: Preset manager (rename, export, import etc)
-Add: Fuse settings explorer
-Fix: High verbosity level resulting in slow programming caused by slow console output
-Fix: In Linux AVRDUDESS reads the avrdude.conf file in the exe directory instead of the one AVRDUDE uses
