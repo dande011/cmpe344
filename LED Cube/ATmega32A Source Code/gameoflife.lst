@@ -1,0 +1,371 @@
+   1               		.file	"gameoflife.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+  15               	.Ltext0:
+  16               	.global	gol_count_changes
+  18               	gol_count_changes:
+  19               	.LFB4:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 40E0      		ldi r20,lo8(0)
+  25 0002 50E0      		ldi r21,hi8(0)
+  26 0004 00C0      		rjmp .L2
+  27               	.L4:
+  28               	.LM3:
+  29 0006 FB01      		movw r30,r22
+  30 0008 E20F      		add r30,r18
+  31 000a F31F      		adc r31,r19
+  32 000c DF01      		movw r26,r30
+  33 000e A050      		subi r26,lo8(-(fb))
+  34 0010 B040      		sbci r27,hi8(-(fb))
+  35 0012 9C91      		ld r25,X
+  36 0014 E050      		subi r30,lo8(-(cube))
+  37 0016 F040      		sbci r31,hi8(-(cube))
+  38 0018 8081      		ld r24,Z
+  39 001a 9817      		cp r25,r24
+  40 001c 01F4      		brne .L3
+  41 001e 2F5F      		subi r18,lo8(-(1))
+  42 0020 3F4F      		sbci r19,hi8(-(1))
+  43               	.LM4:
+  44 0022 2830      		cpi r18,8
+  45 0024 3105      		cpc r19,__zero_reg__
+  46 0026 01F4      		brne .L4
+  47 0028 4F5F      		subi r20,lo8(-(1))
+  48 002a 5F4F      		sbci r21,hi8(-(1))
+  49               	.LM5:
+  50 002c 4830      		cpi r20,8
+  51 002e 5105      		cpc r21,__zero_reg__
+  52 0030 01F4      		brne .L2
+  53 0032 80E0      		ldi r24,lo8(0)
+  54 0034 0895      		ret
+  55               	.L2:
+  56 0036 20E0      		ldi r18,lo8(0)
+  57 0038 30E0      		ldi r19,hi8(0)
+  58               	.LM6:
+  59 003a BA01      		movw r22,r20
+  60 003c 83E0      		ldi r24,3
+  61 003e 660F      	1:	lsl r22
+  62 0040 771F      		rol r23
+  63 0042 8A95      		dec r24
+  64 0044 01F4      		brne 1b
+  65 0046 00C0      		rjmp .L4
+  66               	.L3:
+  67               	.LM7:
+  68 0048 81E0      		ldi r24,lo8(1)
+  69               	.LM8:
+  70 004a 0895      		ret
+  71               	.LFE4:
+  73               	.global	gol_nextgen
+  75               	gol_nextgen:
+  76               	.LFB3:
+  77               	.LM9:
+  78 004c 5F92      		push r5
+  79 004e 6F92      		push r6
+  80 0050 7F92      		push r7
+  81 0052 8F92      		push r8
+  82 0054 9F92      		push r9
+  83 0056 AF92      		push r10
+  84 0058 BF92      		push r11
+  85 005a CF92      		push r12
+  86 005c DF92      		push r13
+  87 005e EF92      		push r14
+  88 0060 FF92      		push r15
+  89 0062 0F93      		push r16
+  90 0064 1F93      		push r17
+  91 0066 CF93      		push r28
+  92 0068 DF93      		push r29
+  93               	/* prologue: function */
+  94               	/* frame size = 0 */
+  95               	.LM10:
+  96 006a 80E0      		ldi r24,lo8(0)
+  97 006c 0E94 0000 		call tmpfill
+  98 0070 C0E0      		ldi r28,lo8(0)
+  99 0072 D0E0      		ldi r29,hi8(0)
+ 100               	.LM11:
+ 101 0074 21E0      		ldi r18,lo8(1)
+ 102 0076 822E      		mov r8,r18
+ 103 0078 912C      		mov r9,__zero_reg__
+ 104               	.LVL0:
+ 105               	.L22:
+ 106 007a 7401      		movw r14,r8
+ 107 007c 0C2E      		mov r0,r28
+ 108 007e 00C0      		rjmp 2f
+ 109 0080 EE0C      	1:	lsl r14
+ 110 0082 FF1C      		rol r15
+ 111 0084 0A94      	2:	dec r0
+ 112 0086 02F4      		brpl 1b
+ 113 0088 BE2C      		mov r11,r14
+ 114 008a A0E0      		ldi r26,lo8(0)
+ 115 008c B0E0      		ldi r27,hi8(0)
+ 116               	.LM12:
+ 117 008e 5C2E      		mov r5,r28
+ 118 0090 5A94      		dec r5
+ 119               	.LM13:
+ 120 0092 92E0      		ldi r25,lo8(2)
+ 121 0094 692E      		mov r6,r25
+ 122 0096 6C0E      		add r6,r28
+ 123 0098 00C0      		rjmp .L10
+ 124               	.LVL1:
+ 125               	.L16:
+ 126               	.LM14:
+ 127 009a 812F      		mov r24,r17
+ 128 009c 9927      		clr r25
+ 129 009e 87FD      		sbrc r24,7
+ 130 00a0 9095      		com r25
+ 131 00a2 83FD      		sbrc r24,3
+ 132 00a4 00C0      		rjmp .L11
+ 133               	.LM15:
+ 134 00a6 9401      		movw r18,r8
+ 135 00a8 00C0      		rjmp 2f
+ 136 00aa 220F      	1:	lsl r18
+ 137 00ac 331F      		rol r19
+ 138 00ae 8A95      	2:	dec r24
+ 139 00b0 02F4      		brpl 1b
+ 140 00b2 922F      		mov r25,r18
+ 141               	.LM16:
+ 142 00b4 372D      		mov r19,r7
+ 143               	.L15:
+ 144               	.LM17:
+ 145 00b6 632F      		mov r22,r19
+ 146 00b8 7727      		clr r23
+ 147 00ba 67FD      		sbrc r22,7
+ 148 00bc 7095      		com r23
+ 149 00be 63FD      		sbrc r22,3
+ 150 00c0 00C0      		rjmp .L12
+ 151               	.LM18:
+ 152 00c2 2C2D      		mov r18,r12
+ 153               	.L14:
+ 154               	.LM19:
+ 155 00c4 E22F      		mov r30,r18
+ 156 00c6 FF27      		clr r31
+ 157 00c8 E7FD      		sbrc r30,7
+ 158 00ca F095      		com r31
+ 159 00cc E3FD      		sbrc r30,3
+ 160 00ce 00C0      		rjmp .L13
+ 161               	.LM20:
+ 162 00d0 83E0      		ldi r24,3
+ 163 00d2 EE0F      	1:	lsl r30
+ 164 00d4 FF1F      		rol r31
+ 165 00d6 8A95      		dec r24
+ 166 00d8 01F4      		brne 1b
+ 167 00da E60F      		add r30,r22
+ 168 00dc F71F      		adc r31,r23
+ 169 00de E050      		subi r30,lo8(-(cube))
+ 170 00e0 F040      		sbci r31,hi8(-(cube))
+ 171 00e2 8081      		ld r24,Z
+ 172 00e4 8923      		and r24,r25
+ 173 00e6 01F0      		breq .L13
+ 174               	.LM21:
+ 175 00e8 0F5F      		subi r16,lo8(-(1))
+ 176               	.L13:
+ 177 00ea 2F5F      		subi r18,lo8(-(1))
+ 178               	.LM22:
+ 179 00ec 2D15      		cp r18,r13
+ 180 00ee 01F4      		brne .L14
+ 181               	.L12:
+ 182 00f0 3F5F      		subi r19,lo8(-(1))
+ 183               	.LM23:
+ 184 00f2 3A15      		cp r19,r10
+ 185 00f4 01F4      		brne .L15
+ 186               	.L11:
+ 187 00f6 1F5F      		subi r17,lo8(-(1))
+ 188               	.LM24:
+ 189 00f8 1615      		cp r17,r6
+ 190 00fa 01F4      		brne .L16
+ 191               	.LM25:
+ 192 00fc 9A01      		movw r18,r20
+ 193 00fe 63E0      		ldi r22,3
+ 194 0100 220F      	1:	lsl r18
+ 195 0102 331F      		rol r19
+ 196 0104 6A95      		dec r22
+ 197 0106 01F4      		brne 1b
+ 198 0108 2A0F      		add r18,r26
+ 199 010a 3B1F      		adc r19,r27
+ 200 010c F901      		movw r30,r18
+ 201 010e E050      		subi r30,lo8(-(cube))
+ 202 0110 F040      		sbci r31,hi8(-(cube))
+ 203 0112 8081      		ld r24,Z
+ 204 0114 90E0      		ldi r25,lo8(0)
+ 205               	.LVL2:
+ 206 0116 8E21      		and r24,r14
+ 207 0118 9F21      		and r25,r15
+ 208 011a 892B      		or r24,r25
+ 209 011c 01F0      		breq .L17
+ 210               	.LM26:
+ 211 011e 0530      		cpi r16,lo8(5)
+ 212 0120 01F4      		brne .L18
+ 213 0122 00C0      		rjmp .L28
+ 214               	.L17:
+ 215               	.LM27:
+ 216 0124 0430      		cpi r16,lo8(4)
+ 217 0126 01F4      		brne .L18
+ 218               	.L28:
+ 219               	.LM28:
+ 220 0128 F901      		movw r30,r18
+ 221 012a E050      		subi r30,lo8(-(fb))
+ 222 012c F040      		sbci r31,hi8(-(fb))
+ 223 012e 8081      		ld r24,Z
+ 224 0130 8B29      		or r24,r11
+ 225 0132 8083      		st Z,r24
+ 226               	.L18:
+ 227 0134 4F5F      		subi r20,lo8(-(1))
+ 228 0136 5F4F      		sbci r21,hi8(-(1))
+ 229               	.LM29:
+ 230 0138 4830      		cpi r20,8
+ 231 013a 5105      		cpc r21,__zero_reg__
+ 232 013c 01F0      		breq .L19
+ 233               	.L21:
+ 234               	.LM30:
+ 235 013e 152D      		mov r17,r5
+ 236 0140 00E0      		ldi r16,lo8(0)
+ 237 0142 C42E      		mov r12,r20
+ 238 0144 CA94      		dec r12
+ 239               	.LM31:
+ 240 0146 22E0      		ldi r18,lo8(2)
+ 241 0148 D22E      		mov r13,r18
+ 242 014a D40E      		add r13,r20
+ 243 014c 00C0      		rjmp .L16
+ 244               	.L19:
+ 245               	.LM32:
+ 246 014e 1196      		adiw r26,1
+ 247               	.LM33:
+ 248 0150 A830      		cpi r26,8
+ 249 0152 B105      		cpc r27,__zero_reg__
+ 250 0154 01F0      		breq .L20
+ 251               	.L10:
+ 252 0156 40E0      		ldi r20,lo8(0)
+ 253 0158 50E0      		ldi r21,hi8(0)
+ 254               	.LM34:
+ 255 015a 7A2E      		mov r7,r26
+ 256 015c 7A94      		dec r7
+ 257               	.LM35:
+ 258 015e 92E0      		ldi r25,lo8(2)
+ 259 0160 A92E      		mov r10,r25
+ 260 0162 AA0E      		add r10,r26
+ 261 0164 00C0      		rjmp .L21
+ 262               	.L20:
+ 263               	.LM36:
+ 264 0166 2196      		adiw r28,1
+ 265               	.LM37:
+ 266 0168 C830      		cpi r28,8
+ 267 016a D105      		cpc r29,__zero_reg__
+ 268 016c 01F0      		breq .+2
+ 269 016e 00C0      		rjmp .L22
+ 270               	/* epilogue start */
+ 271               	.LM38:
+ 272 0170 DF91      		pop r29
+ 273 0172 CF91      		pop r28
+ 274 0174 1F91      		pop r17
+ 275 0176 0F91      		pop r16
+ 276               	.LVL3:
+ 277 0178 FF90      		pop r15
+ 278 017a EF90      		pop r14
+ 279 017c DF90      		pop r13
+ 280 017e CF90      		pop r12
+ 281 0180 BF90      		pop r11
+ 282               	.LVL4:
+ 283 0182 AF90      		pop r10
+ 284 0184 9F90      		pop r9
+ 285 0186 8F90      		pop r8
+ 286 0188 7F90      		pop r7
+ 287 018a 6F90      		pop r6
+ 288 018c 5F90      		pop r5
+ 289 018e 0895      		ret
+ 290               	.LFE3:
+ 292               	.global	gol_play
+ 294               	gol_play:
+ 295               	.LFB2:
+ 296               	.LM39:
+ 297               	.LVL5:
+ 298 0190 DF92      		push r13
+ 299 0192 EF92      		push r14
+ 300 0194 FF92      		push r15
+ 301 0196 0F93      		push r16
+ 302 0198 1F93      		push r17
+ 303 019a CF93      		push r28
+ 304 019c DF93      		push r29
+ 305               	/* prologue: function */
+ 306               	/* frame size = 0 */
+ 307 019e 7C01      		movw r14,r24
+ 308 01a0 8B01      		movw r16,r22
+ 309               	.LM40:
+ 310 01a2 C0E0      		ldi r28,lo8(0)
+ 311 01a4 D0E0      		ldi r29,hi8(0)
+ 312               	.LVL6:
+ 313               	.LM41:
+ 314 01a6 38E0      		ldi r19,lo8(8)
+ 315 01a8 D32E      		mov r13,r19
+ 316 01aa 00C0      		rjmp .L30
+ 317               	.LVL7:
+ 318               	.L33:
+ 319 01ac 82B3      		in r24,50-32
+ 320 01ae 8D25      		eor r24,r13
+ 321 01b0 82BB      		out 50-32,r24
+ 322               	.LM42:
+ 323 01b2 0E94 0000 		call gol_nextgen
+ 324               	.LM43:
+ 325 01b6 CE01      		movw r24,r28
+ 326 01b8 8770      		andi r24,lo8(7)
+ 327 01ba 9070      		andi r25,hi8(7)
+ 328 01bc 892B      		or r24,r25
+ 329 01be 01F4      		brne .L31
+ 330               	.LM44:
+ 331 01c0 0E94 0000 		call gol_count_changes
+ 332 01c4 8823      		tst r24
+ 333 01c6 01F0      		breq .L34
+ 334               	.L31:
+ 335               	.LM45:
+ 336 01c8 0E94 0000 		call tmp2cube
+ 337               	.LM46:
+ 338 01cc C801      		movw r24,r16
+ 339 01ce 0E94 0000 		call delay_ms
+ 340               	.LM47:
+ 341 01d2 2196      		adiw r28,1
+ 342               	.LVL8:
+ 343               	.L30:
+ 344 01d4 CE15      		cp r28,r14
+ 345 01d6 DF05      		cpc r29,r15
+ 346 01d8 04F0      		brlt .L33
+ 347               	.L34:
+ 348               	/* epilogue start */
+ 349               	.LM48:
+ 350 01da DF91      		pop r29
+ 351 01dc CF91      		pop r28
+ 352               	.LVL9:
+ 353 01de 1F91      		pop r17
+ 354 01e0 0F91      		pop r16
+ 355               	.LVL10:
+ 356 01e2 FF90      		pop r15
+ 357 01e4 EF90      		pop r14
+ 358               	.LVL11:
+ 359 01e6 DF90      		pop r13
+ 360 01e8 0895      		ret
+ 361               	.LFE2:
+ 363               		.comm cube,64,1
+ 364               		.comm fb,64,1
+ 405               	.Letext0:
+DEFINED SYMBOLS
+                            *ABS*:00000000 gameoflife.c
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:2      *ABS*:0000003f __SREG__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:3      *ABS*:0000003e __SP_H__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:4      *ABS*:0000003d __SP_L__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:5      *ABS*:00000034 __CCP__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:18     .text:00000000 gol_count_changes
+                            *COM*:00000040 fb
+                            *COM*:00000040 cube
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:75     .text:0000004c gol_nextgen
+C:\Users\SUPERT~1\AppData\Local\Temp/ccCaE8If.s:294    .text:00000190 gol_play
+
+UNDEFINED SYMBOLS
+tmpfill
+tmp2cube
+delay_ms
+__do_clear_bss
