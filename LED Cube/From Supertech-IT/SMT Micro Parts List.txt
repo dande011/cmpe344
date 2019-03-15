@@ -1,0 +1,41 @@
+The quantities will usually be rounded to what you can usually purchase from ebay -
+meaning if you need 8 of something, I'll say 10, if you need 78 of something , I'll say 100. if you need 5 but the smallest quantity I could find online is 25 I will put 5 (25).
+ In most cases the minimum quantity costs $1 to $4 including shipping.
+Again, check the parts link in step 15.
+
+* ATMega32TQFP Microcontroller - 1
+* 40 pin shrouded male cable header connectors - 4 (10) NOT SMT
+* 10 pin shrouded male cable header connector -  1 (10)NOT SMT
+* 74HC574DWR flip-flop / latch (LED Driver)- 8 (10)
+* 74HC138DR demultiplexer - 1 (1-2)
+* FZT851 SOT23 Transistor - 8 (10)
+* Single row straight header strip - 1 (20 - 40 pins)NOT SMT
+* 1117-5 5V SMT 5V regulator - 1 (10)
+* 16MHz HC-49S 2 pin crystal oscillator - 1
+* TC-0103 6.2x6.2x4.2 mm Tact Tactile Push Button Momentary SMD PCB Switch - 3 (50) 
+NOTE - these buttons are not available from our "cheap" supplier anymore. The 3.7X boards take the new buttons in the current price links page in the instructable in step 15.
+* 22pF ceramic capacitors - 2 (30) NOT SMT
+* 0.1 uF (100 nF) SMT size 0805 capacitors - 10 (50)
+* 100uF electrolytic capacitor - 1 (20)NOT SMT
+* 10uF electrolytic capacitor - 1 (10)NOT SMT
+* Assorted colour LEDs - 4 (30) NOT SMT
+* DC Power Supply Female Jack Socket 5.5 x 2.1mm Barrel-Type 1 (2)NOT SMT
+* 100 to 220 ohm SMT size 0603 resistors - 100 
+* 5.6K SMT resistors size 0603 - 9 (100) 
+
+*****40 conductor******* 40 pin cable with female connectors - 2
+I cannot stress enough that it must be 40 conductor (OLD CD-ROM IDE / hard disk cables).
+If ordering hard disk / CD-ROM cables, they must be ATA33.
+NOT ATA 66, 100 and 133 cables - these are all 80 conductor 40 pin cables. These do not connect all 40 pins, and therefore don't work.
+Most ebay vendors advertising ATA33 cables ship 80 conductor !
+If you can't find pre-made cables, get a length of 40 conductor ribbon cable and 40 pin female cable crimp connectors.
+You can use solder type connectors, but crimps are so much neater. You'll need a vise or clamp to crimp the connectors to the cable.
+Worst case scenario, solder the cable from the board to the cube.
+
+CURRENTLY the vendor on the parts page has actual 40 conductor cables.
+
+* USBTiny, USBasp or other ICSP Programmer - 1 
+* USB TTL Serial adapter - 1 (optional - only for PC assisted operation)
+** 5V to 7.5V power adapter - 1 (minimum 500mA) Set power input jumper accordingly.
+
+WWW.SuperTech-IT.COM
