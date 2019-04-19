@@ -1,0 +1,4 @@
+bool& voxel(x,y,z) // returns a reference to the spot in the matrix
+
+bool inrange(x,y,z) // validates coords are within cube boundries
+
