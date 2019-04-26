@@ -2,3 +2,17 @@ bool& voxel(x,y,z) // returns a reference to the spot in the matrix
 
 bool inrange(x,y,z) // validates coords are within cube boundries
 
+
+
+tmp2cube
+
+setvoxel
+setplane
+setline
+drawchar
+box_wireframe
+shift
+
+
+fireworks
+effect_box_woopwoop
