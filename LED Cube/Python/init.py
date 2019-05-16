@@ -2,11 +2,13 @@
 import utime
 from Maix import GPIO
 
+CUBESIZE = 8
+
 print("fm registers:")
 fm.register(board_info.LED_R, fm.fpioa.GPIO0)
-fm.register(1,fm.fpioa.GPIOHS1)
-fm.register(2,fm.fpioa.GPIOHS2)
-fm.register(3,fm.fpioa.GPIOHS3)
+fm.register(1,fm.fpioa.GPIOHS3)
+fm.register(2,fm.fpioa.GPIOHS4)
+fm.register(3,fm.fpioa.GPIOHS5)
 fm.register(6,fm.fpioa.GPIOHS6)
 fm.register(7,fm.fpioa.GPIOHS7)
 fm.register(8,fm.fpioa.GPIOHS8)
@@ -31,9 +33,9 @@ data = []
 
 print("GPIO Asignments:")
 led_r=GPIO(GPIO.GPIO0,GPIO.OUT)
-addr.append(GPIO(GPIO.GPIOHS1,GPIO.OUT))
-addr.append(GPIO(GPIO.GPIOHS2,GPIO.OUT))
 addr.append(GPIO(GPIO.GPIOHS3,GPIO.OUT))
+addr.append(GPIO(GPIO.GPIOHS4,GPIO.OUT))
+addr.append(GPIO(GPIO.GPIOHS5,GPIO.OUT))
 oe=GPIO(GPIO.GPIOHS6,GPIO.OUT)
 LS.append(GPIO(GPIO.GPIOHS7,GPIO.OUT))
 LS.append(GPIO(GPIO.GPIOHS8,GPIO.OUT))
