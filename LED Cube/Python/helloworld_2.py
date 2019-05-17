@@ -8,12 +8,21 @@
 print()
 
 
-
+#def run():
 oe.value(0)
+oe.value(1)
 
 for i in range(0,8):
     utime.sleep_ms(500)
+    #zero()
     setVoxel(i,i,i,1)
+    utime.sleep_ms(500)
+    #zero()
+
+#setAddress(3,1)
+#data[1].value(1)
+#LS[6].value(1)
+
 
 utime.sleep_ms(500)
 zero()

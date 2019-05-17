@@ -4,6 +4,7 @@ from Maix import GPIO
 
 CUBESIZE = 8
 
+#def init():
 print("fm registers:")
 fm.register(board_info.LED_R, fm.fpioa.GPIO0)
 fm.register(1,fm.fpioa.GPIOHS3)
